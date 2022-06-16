@@ -1,0 +1,14 @@
+---
+- name: build server provisioning
+  hosts: build
+  become: yes
+
+  roles:
+    - build
+
+- name: prod server provisioning
+  hosts: prod
+  become: yes
+
+  roles:
+    - prod
