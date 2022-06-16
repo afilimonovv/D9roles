@@ -1,12 +1,12 @@
 ---
-- name: build server provisioning
+- name: Building application
   hosts: build
   become: yes
 
   roles:
     - build
 
-- name: prod server provisioning
+- name: Launching the application
   hosts: prod
   become: yes
 
