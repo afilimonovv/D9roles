@@ -1,0 +1,16 @@
+---
+- name: Building application
+  hosts: build
+  become: yes
+
+  roles:
+  - build
+
+
+- name: Launching the application
+  hosts: prod
+  become: yes
+
+  roles:
+  - product
+

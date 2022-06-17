@@ -1,0 +1,21 @@
+---
+# tasks file for product
+
+- name: Ensure programs is present
+  apt:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - git
+    - default-jdk
+    - tomcat9
+ 
+- name: Copy project to prod
+  git:
+    repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+    dest: /root/project
+
+- name: Copy app to prod
+  copy:
+    src: /tmp/project/hello-1.0.war
+    dest: /var/lib/tomcat9/webapps
